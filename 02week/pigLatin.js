@@ -8,11 +8,36 @@ const rl = readline.createInterface({
 });
 
 
-function pigLatin(word) {
-
-  // Your code here
-
+function pigLatin(str) {
+// Define Vowels in a string
+var vowels = ["a","e","i","o","u"];
+// Split string into it's individual letters
+var strArr = str.split("");
+var index;
+  
+// Look for the vowel inside the string
+  for(var c = 0; c < strArr.length; c++){
+    for(var v = 0; v < vowels.length; v++){
+      if(strArr[c] === vowels[v]){
+        if(index === undefined){
+          index = strArr.indexOf(strArr[c]);
+          }
+        }
+      }
+    }
+  
+// If vowel is not first letter, move consonants before vowel to the end of the word and and ay.
+// If vowel is first letter, add way to end of word.
+if(index !== 0){
+  var sliced = str.slice(0, index);
+    str = str.slice(index) + sliced + "ay";
+} else {
+  str = str + "way";
 }
+
+// Call function
+return str;
+  }y
 
 
 function getPrompt() {
