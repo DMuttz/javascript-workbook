@@ -6,4 +6,4 @@ const printListOfOlympians = (arr) =>{
  })
 }
 
-printListOfOlympians(["daniel", "jim", "bob", "allen", "jim"]);
+printListOfOlympians(["daniel", "jimmy", "bob", "allen", "jim"]);
