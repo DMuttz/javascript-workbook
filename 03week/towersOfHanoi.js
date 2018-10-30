@@ -31,12 +31,12 @@ function isLegal() {
 }
 
 function checkForWin() {
-  // Your code here
+  // This function needs to check that all 4 items are in array C, and in order from largest to smallest.
 
 }
 
 function towersOfHanoi(startStack, endStack) {
-  // Your code here
+  // This function needs to ensure that one array is the place for the start stack and one array is the place for the end stack.
 
 }
 
