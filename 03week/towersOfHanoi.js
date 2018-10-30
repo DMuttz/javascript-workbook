@@ -19,6 +19,7 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
+// This function will move pieces from one column to the next.
 function movePiece() {
   // Your code here
 
