@@ -23,11 +23,10 @@ function printStacks() {
 const movePiece = () => {
   // I need a function here that can help me pull an item from one array and move it to another within this multi-dimensional array.
   
-  
 }
 
 function isLegal() {
-  // Your code here
+  // I need a function here that assigns value to 1,2,3,4. Then this function should be able to tell the computer whether or not a move can be made based on the value of the piece. A larger piece cannot go on top of a smaller piece.
 
 }
 
