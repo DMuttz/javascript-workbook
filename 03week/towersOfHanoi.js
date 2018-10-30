@@ -19,9 +19,11 @@ function printStacks() {
   console.log("c: " + stacks.c);
 }
 
-// This function will move pieces from one column to the next column.
-const movePiece = (stacks.a, stacks.b, stacks.c) => {
-  if stacks < 0
+
+const movePiece = () => {
+  // I need a function here that can help me pull an item from one array and move it to another within this multi-dimensional array.
+  
+  
 }
 
 function isLegal() {
