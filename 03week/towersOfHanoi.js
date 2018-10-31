@@ -13,7 +13,7 @@ let stacks = {
   c: []
 };
 
-function printStacks() {
+const printStacks = () => {
   console.log("a: " + stacks.a);
   console.log("b: " + stacks.b);
   console.log("c: " + stacks.c);
@@ -25,22 +25,22 @@ const movePiece = () => {
   
 }
 
-function isLegal() {
+const isLegal = () => {
   // I need a function here that assigns value to 1,2,3,4. Then this function should be able to tell the computer whether or not a move can be made based on the value of the piece. A larger piece cannot go on top of a smaller piece.
 
 }
 
-function checkForWin() {
+const checkForWin = () => {
   // This function needs to check that all 4 items are in array C, and in order from largest to smallest.
 
 }
 
-function towersOfHanoi(startStack, endStack) {
+const towersOfHanoi = (startStack, endStack) => {
   // This function needs to ensure that one array is the place for the start stack and one array is the place for the end stack.
 
 }
 
-function getPrompt() {
+const getPrompt = () => {
   printStacks();
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
