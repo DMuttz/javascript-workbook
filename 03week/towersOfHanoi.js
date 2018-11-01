@@ -20,8 +20,10 @@ const printStacks = () => {
 }
 
 
-const movePiece = () => {
-  // I need a function here that can help me pull an item from one array and move it to another within this multi-dimensional array.
+const movePiece = (startStack, endStack) => {
+  if (startStack == stacks.a || stacks.b || stacks.c) {
+    
+  }
   
 }
 
