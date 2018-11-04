@@ -1,55 +1,69 @@
 // 1. Write a JavaScript program to display the current day and time.
-const todaysDate = new Date();
-console.log(todaysDate);
-
+const todaysDate = () => { 
+  const dateAndTime = new Date(); 
+  // console.log(dateAndTime); 
+  return dateAndTime;
+}
+console.log(todaysDate()); //run todaysDate
 
 // 2. Write a JavaScript program to convert a number to a string.
-const numberConvert = 500;
-numberConvert.toString();
-
+const numToString = (num1) => {
+  const toString = num1.toString(); 
+  return toString; 
+}
+console.log(typeof numToString(200));
 
 // 3. Write a JavaScript program to convert a string to the number.
-Number('50');
+const stringToNum = (str1) => {
+  const toNum = Number(str1);
+  console.log(toNum)
+}
+stringToNum('25')
 
-
-// 4. Write a JavaScript program that takes in different datatypes and prints out whether they are a...
-console.log (typeof true);
-console.log (typeof p);
-console.log (typeof vsvs);
-console.log (typeof 200);
-console.log (typeof IEEE754);
-console.log (typeof 'words');
-
+// 4. Write a JavaScript program that takes in different datatypes and prints out whether they are a:
+// Boolean
+// Null
+// Undefined
+// Number
+// NaN
+// String
+const pickDataType = (dataType) => {
+  console.log (typeof dataType)
+}
+pickDataType(true)
 
 // 5. Write a JavaScript program that adds 2 numbers together.
-const add =(num1, num2)=> {
-  return num1 + num2
+const sumNums = (num1, num2) => {
+  console.log(num1+num2)
 }
-add(6,8)
-
+sumNums(2,8)
 
 // 6. Write a JavaScript program that runs only when 2 things are true.
-const a = 15;
-if (a>10 && a<16) {
-  console.log('Thats a good number.')
+const isTrue = (num1, num2) => {
+  if (num1 > 400 && num2 > 400) {
+  console.log('it is true!');
 } else {
-  console.log('Thats a bad number.')
+  console.log('is not true!');
 }
-
+  }
+isTrue(550, 200)
 
 // 7. Write a JavaScript program that runs when 1 of 2 things are true.
-const varB = 'words on words on words';
-if (typeof varB === 'string') {
-  console.log('This is a string!');
-} else {
-  console.log('This is not a string.')
+const maybeTrueTest = (num1, num2) => {
+  if (num1 === 100 || num2 === 50) {
+    console.log('yea it is true');
+  } else {
+    console.log('not true')
+  }
+console.log(maybeTrueTest(50,30))
 }
-
 
 // 8. Write a JavaScript program that runs when both things are not true.
-const varC = 1000000;
-if (varC > 2000000 && varC < 100) {
-  console.log('This is a small number!');
+const isNotTrue = (num1, num2) => {
+   if (!(num1 > 400) && !(num2 > 400)) {
+     return 'good work both not true';
 } else {
-  console.log('This is a big number!')
+    return 'bad work one or both are true'
 }
+}
+console.log(isNotTrue(200,200))
