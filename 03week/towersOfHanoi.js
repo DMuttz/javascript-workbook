@@ -20,9 +20,11 @@ const printStacks = () => {
 };
 
 const movePiece = (startStack, endStack) => {
-  // if (stacks[endStack].length === 0) {
-  
+  (stacks[startStack].pop(stacks[endStack].push()) 
 }
+
+//   if (stacks[endStack].length === 0) {
+
   //   }
     
 
@@ -33,29 +35,36 @@ const movePiece = (startStack, endStack) => {
     // add the item to the end stack array
     // look up methods to add; maybe pop or push
 //     console.log('move piece');
-//   }
+
+
+
+
 
 
 const isLegal = () => {
-  // I need a function here that assigns value to 1,2,3,4. Then this function should be able to tell the computer whether or not a move can be made based on the value of the piece. A larger piece cannot go on top of a smaller piece.
+  if (stacks[startStack].length < stacks[endStack].length) {
 return true;
+  } else if {
+
+  }
 }
 
 const checkForWin = () => {
-  // This function needs to check that all 4 items are in array C, and in order from largest to smallest.
-
+  if(stacks.c.length === 4) {
+    console.log('Great job! You won!');
+  } else {
+    console.log()
+  }
 }
 
 const towersOfHanoi = (startStack, endStack) => {
   // This function needs to ensure that one array is the place for the start stack and one array is the place for the end stack.
-if (isLegal()) {
-  movePiece();
+if (isLegal(startStack, endStack)) {
+  movePiece(startStack, endStack);
   checkForWin();
-
-} else {
+  } else {
   return 'invalid move'
-}
-
+  }
 }
 
 const getPrompt = () => {
