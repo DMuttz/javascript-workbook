@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-const assert = require('assert');
-const readline = require('readline');
+const assert = require("assert");
+const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
@@ -20,103 +20,94 @@ const printStacks = () => {
 };
 
 const movePiece = (startStack, endStack) => {
-  (stacks[startStack].pop(stacks[endStack].push()) 
-}
+  //taking last piece off of start stack
+  const startMove = stacks[startStack].pop();
+  //moving last piece onto end stacks
+  stacks[endStack].push(startMove);
+};
 
-//   if (stacks[endStack].length === 0) {
-
-  //   }
-    
-
-    // get the value of start stack array
-    // const startstack = stacks[startStack]
-    // get the last item in the array
-    // startstack => get last item
-    // add the item to the end stack array
-    // look up methods to add; maybe pop or push
-//     console.log('move piece');
-
-
-
-
-
-
-const isLegal = () => {
-  if (stacks[startStack].length < stacks[endStack].length) {
-return true;
-  } else if {
-
+const isLegal = (startStack, endStack) => {
+  //variable to declare value of startStack
+  const startingArray = stacks[startStack];
+  //variable to declare value of endStack
+  const endingArray = stacks[endStack];
+  //if endingArray is empty, move is allowed
+  if (endingArray.length === 0) {
+    return true;
+  } else if (
+    //else if the value of the starting piece is less than the value of the ending piece, you can move it. Otherwise, you can't.
+    startingArray[startingArray.length - 1] <
+    endingArray[endingArray.length - 1]
+  ) {
+    return true;
+  } else {
+    return false;
   }
-}
+};
 
 const checkForWin = () => {
-  if(stacks.c.length === 4) {
-    console.log('Great job! You won!');
-  } else {
-    console.log()
+  //If the final stack has 4 pieces (the order will be correct no matter what because of islegal) player wins.
+  if (stacks.c.length === 4) {
+    console.log("Great job! You won!");
   }
-}
+};
 
 const towersOfHanoi = (startStack, endStack) => {
-  // This function needs to ensure that one array is the place for the start stack and one array is the place for the end stack.
-if (isLegal(startStack, endStack)) {
-  movePiece(startStack, endStack);
-  checkForWin();
+  // if move is legal, move piece and check for win, otherwise don't move piece.
+  if (isLegal(startStack, endStack)) {
+    movePiece(startStack, endStack);
+    checkForWin();
   } else {
-  return 'invalid move'
+    console.log("invalid move");
   }
-}
+};
 
 const getPrompt = () => {
   printStacks();
-  rl.question('start stack: ', (startStack) => {
-    rl.question('end stack: ', (endStack) => {
+  rl.question("start stack: ", startStack => {
+    rl.question("end stack: ", endStack => {
       towersOfHanoi(startStack, endStack);
       getPrompt();
     });
   });
-}
+};
 
 // Tests
 
-if (typeof describe === 'function') {
-
-  describe('#towersOfHanoi()', () => {
-    it('should be able to move a block', () => {
-      towersOfHanoi('a', 'b');
+if (typeof describe === "function") {
+  describe("#towersOfHanoi()", () => {
+    it("should be able to move a block", () => {
+      towersOfHanoi("a", "b");
       assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] });
     });
   });
 
-  describe('#isLegal()', () => {
-    it('should not allow an illegal move', () => {
+  describe("#isLegal()", () => {
+    it("should not allow an illegal move", () => {
       stacks = {
         a: [4, 3, 2],
         b: [1],
         c: []
       };
-      assert.equal(isLegal('a', 'b'), false);
+      assert.equal(isLegal("a", "b"), false);
     });
-    it('should allow a legal move', () => {
+    it("should allow a legal move", () => {
       stacks = {
         a: [4, 3, 2, 1],
         b: [],
         c: []
       };
-      assert.equal(isLegal('a', 'c'), true);
+      assert.equal(isLegal("a", "c"), true);
     });
   });
-  describe('#checkForWin()', () => {
-    it('should detect a win', () => {
+  describe("#checkForWin()", () => {
+    it("should detect a win", () => {
       stacks = { a: [], b: [4, 3, 2, 1], c: [] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
     });
   });
-
 } else {
-
   getPrompt();
-
 }
