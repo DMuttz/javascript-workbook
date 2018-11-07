@@ -108,6 +108,60 @@ if (typeof describe === "function") {
       assert.equal(checkForWin(), false);
     });
   });
+  describe("#movePiece()", () => {
+    it("should allow capital letters", () => {
+      stacks = {
+        a: [4, 3, 2, 1],
+        b: [],
+        c: []
+      };
+      assert.equal(movePiece("A", "B", "C"), true);
+    });
+    it("should not allow other letters", () => {
+      stacks = {
+        a: [4, 3, 2, 1],
+        b: [],
+        c: []
+      };
+      assert.equal(
+        movePiece(
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "n",
+          "o",
+          "p",
+          "q",
+          "r",
+          "s",
+          "t",
+          "u",
+          "v",
+          "w",
+          "x",
+          "y",
+          "z"
+        ),
+        false
+      );
+      it("should not allow more than one letter", () => {
+        stacks = {
+          a: [4, 3, 2, 1],
+          b: [],
+          c: []
+        };
+        assert.equal(movePiece("aa", "bb", "cc"), false);
+      });
+    });
+  });
+  // });
 } else {
   getPrompt();
 }
