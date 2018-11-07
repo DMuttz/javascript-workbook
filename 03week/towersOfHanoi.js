@@ -45,10 +45,10 @@ const isLegal = (startStack, endStack) => {
   }
 };
 
-const checkForWin = () => {
+const checkForWin = (startStack, endStack) => {
   //If the final stack has 4 pieces (the order will be correct no matter what because of islegal) player wins.
   if (stacks.c.length === 4) {
-    console.log("Great job! You won!");
+    console.log("You Won!");
   }
 };
 
@@ -102,7 +102,7 @@ if (typeof describe === "function") {
   });
   describe("#checkForWin()", () => {
     it("should detect a win", () => {
-      stacks = { a: [], b: [4, 3, 2, 1], c: [] };
+      stacks = { a: [], b: [], c: [4, 3, 2, 1] };
       assert.equal(checkForWin(), true);
       stacks = { a: [1], b: [4, 3, 2], c: [] };
       assert.equal(checkForWin(), false);
