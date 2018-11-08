@@ -32,6 +32,7 @@ const isLegal = (startStack, endStack) => {
   //variable to declare value of endStack
   const endingArray = stacks[endStack];
   //if endingArray is empty, move is allowed
+  console.log(startStack, endStack);
   if (endingArray.length === 0) {
     return true;
   } else if (
@@ -49,14 +50,29 @@ const checkForWin = (startStack, endStack) => {
   //If the final stack has 4 pieces (the order will be correct no matter what because of islegal) player wins.
   if (stacks.c.length === 4) {
     console.log("You Won!");
+    return true;
+  } else {
+    return false;
   }
+};
+
+const resetGame = () => {
+  stacks = {
+    a: [4, 3, 2, 1],
+    b: [],
+    c: []
+  };
 };
 
 const towersOfHanoi = (startStack, endStack) => {
   // if move is legal, move piece and check for win, otherwise don't move piece.
-  if (isLegal(startStack, endStack)) {
-    movePiece(startStack, endStack);
-    checkForWin();
+  const lowerCaseStartStack = startStack.trim().toLowerCase();
+  const lowerCaseEndStack = endStack.trim().toLowerCase();
+  if (isLegal(lowerCaseStartStack, lowerCaseEndStack)) {
+    movePiece(lowerCaseStartStack, lowerCaseEndStack);
+    if (checkForWin()) {
+      resetGame();
+    }
   } else {
     console.log("invalid move");
   }
@@ -115,7 +131,10 @@ if (typeof describe === "function") {
         b: [],
         c: []
       };
-      assert.equal(movePiece("A", "B", "C"), true);
+      assert.equal(
+        towersOfHanoi("A", "B"),
+        assert.deepEqual(stacks, { a: [4, 3, 2], b: [1], c: [] })
+      );
     });
     it("should not allow other letters", () => {
       stacks = {
@@ -123,34 +142,6 @@ if (typeof describe === "function") {
         b: [],
         c: []
       };
-      assert.equal(
-        movePiece(
-          "d",
-          "e",
-          "f",
-          "g",
-          "h",
-          "i",
-          "j",
-          "k",
-          "l",
-          "m",
-          "n",
-          "o",
-          "p",
-          "q",
-          "r",
-          "s",
-          "t",
-          "u",
-          "v",
-          "w",
-          "x",
-          "y",
-          "z"
-        ),
-        false
-      );
       it("should not allow more than one letter", () => {
         stacks = {
           a: [4, 3, 2, 1],
@@ -161,7 +152,6 @@ if (typeof describe === "function") {
       });
     });
   });
-  // });
 } else {
   getPrompt();
 }
