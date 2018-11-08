@@ -9,6 +9,7 @@ const rl = readline.createInterface({
 let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 
 let playerTurn = "X";
+// let playerTwoTurn = "O";
 
 function printBoard() {
   console.log("   0  1  2");
@@ -20,6 +21,9 @@ function printBoard() {
 }
 
 // *** CODE PLAN ***
+
+//const boardLength = board.length;
+//
 
 // horizontalWin:
 // If X or Y are at:
@@ -46,7 +50,16 @@ function printBoard() {
 // If Y (horizontal or vertical or diagonal win,) return "Players Y won!"
 
 // ticTacToe:
-//  If H
+//  If diagonalWin (x or y)
+//(check for win),
+
+//  If horizontalWin (x or y)
+//(check for win),
+
+//  If verticallWin (x or y)
+//(check for win),
+
+// else reset
 
 function horizontalWin() {
   // Your code here
