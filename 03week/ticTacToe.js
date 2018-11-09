@@ -10,6 +10,11 @@ let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 
 let playerTurn = "X";
 // let playerTwoTurn = "O";
+//need function to mark the board
+//need function to switch player
+//checking for legal move (two players cant go in same space)
+//if its a space it's avaialable
+//use for each function check for current player turn (loops are best friends)
 
 function printBoard() {
   console.log("   0  1  2");
