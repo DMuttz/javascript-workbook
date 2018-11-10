@@ -9,12 +9,6 @@ const rl = readline.createInterface({
 let board = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]];
 
 let playerTurn = "X";
-// let playerTwoTurn = "O";
-//need function to mark the board
-//need function to switch player
-//checking for legal move (two players cant go in same space)
-//if its a space it's avaialable
-//use for each function check for current player turn (loops are best friends)
 
 function printBoard() {
   console.log("   0  1  2");
@@ -27,8 +21,11 @@ function printBoard() {
 
 // *** CODE PLAN ***
 
-//const boardLength = board.length;
-//
+//need function to mark the board
+//need function to switch player
+//checking for legal move (two players cant go in same space)
+//if its a space it's avaialable
+//use for each function check for current player turn (loops are best friends)
 
 // horizontalWin:
 // If X or Y are at:
@@ -66,20 +63,98 @@ function printBoard() {
 
 // else reset
 
-function horizontalWin() {
-  // Your code here
+const isLegalMove = (row, column) => {
+  if (board[row][column] == " ") {
+    return true;
+  } else {
+    console.log("Please pick empty space");
+  }
+};
+
+const playerMove = (row, column) => {
+  if (playerTurn == "X") {
+    board[row][column] = "X";
+  } else {
+    board[row][column] = "O";
+  }
+};
+
+const switchPlayer = () => {
+  if (playerTurn == 'X'){
+    playerTurn = 'O';
+  } else {
+    playerTurn = 'X';
+  }
+};
+
+function horizontalWinX() {
+  if (board[0][0] == 'X' && board[0][1] == 'X' && board[0][2] == 'X'){
+    return true;
+} else if (board[1][0] == 'X' && board[1][1] == 'X' && board[1][2] == 'X'){
+    return true;
+} else if (board[2][0] == 'X' && board[2][1] == 'X' && board[2][2] == 'X'){
+    return true;
+} else {
+    return false;
+};
+
+function horizontalWinO() {
+  if (board[0][0] == 'O' && board[0][1] == 'O' && board[0][2] == 'O'){
+    return true;
+} else if (board[1][0] == 'O' && board[1][1] == 'O' && board[1][2] == 'O'){
+    return true;
+} else if (board[2][0] == 'O' && board[2][1] == 'O' && board[2][2] == 'O'){
+    return true;
+} else {
+    return false;
+};
+
+function verticalWinX() {
+  if (board[0][0] == 'X' && board[1][0] == 'X' && board[2][0] == 'X'){
+    return true;
+} else if (board[0][1] == 'X' && board[1][1] == 'X' && board[2][1] == 'X'){
+    return true;
+} else if (board[0][2] == 'X' && board[1][2] == 'X' && board[2][2] == 'X'){
+    return true;
+} else {
+    return false;
+};
+
+function verticalWinO() {
+  if (board[0][0] == 'O' && board[1][0] == 'O' && board[2][0] == 'O'){
+    return true;
+} else if (board[0][1] == 'O' && board[1][1] == 'O' && board[2][1] == 'O'){
+    return true;
+} else if (board[0][2] == 'O' && board[1][2] == 'O' && board[2][2] == 'O'){
+    return true;
+} else {
+    return false;
 }
 
-function verticalWin() {
-  // Your code here
-}
+function diagonalWinX() {
+  if (board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X'){
+    return true;
+} else if (board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X'){
+    return true;
+} else {
+    return false;
+};
 
-function diagonalWin() {
-  // Your code here
-}
+function diagonalWinO() {
+  if (board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O'){
+    return true;
+} else if (board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O'){
+    return true;
+} else {
+    return false;
+};
 
 function checkForWin() {
-  // Your code here
+  if (horizontalWinX || verticalWinX || diagonalWinX) {
+    console.log('Player X Wins!')
+  } else if (horizontalWinO || verticalWinO || diagonalWinO)
+    console.log('Player O Wins!')
+  }
 }
 
 function ticTacToe(row, column) {
