@@ -12,7 +12,7 @@ let jobTypes = {
 // Your code here
 class CrewMember {
   constructor(name, job, specialSkill, ship) {
-    crewMember1("Rick Martinez", "pilot", "chemistry");
+    // crewMember1("Rick Martinez", "pilot", "chemistry");
     this.name = "Rick Martinez";
     this.job = "pilot";
     this.specialSkill = "chemistry";
@@ -22,7 +22,7 @@ class CrewMember {
 
 //tests
 if (typeof describe === "function") {
-  describe("CrewMember", function() {
+  describe("#CrewMember()", function() {
     it("should have a name, a job, a specialSkill and ship upon instantiation", function() {
       var crewMember1 = new CrewMember("Rick Martinez", "pilot", "chemistry");
       assert.equal(crewMember1.name, "Rick Martinez");
