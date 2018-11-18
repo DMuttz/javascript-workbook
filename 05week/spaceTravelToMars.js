@@ -31,6 +31,11 @@ class Ship {
     this.ability = ability;
     this.crew = [];
   }
+
+  missionStatement(message) {
+    if (this.crew.length) {
+      return this.ability;
+  }
 }
 
 //tests
