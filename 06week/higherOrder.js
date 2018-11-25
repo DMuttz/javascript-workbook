@@ -4,12 +4,18 @@ const arr = [1, 2, 3];
 
 const assert = require("assert");
 
+// Create a forEach() function that takes an
+// array of items and a function that runs the
+// function arr.length number of times.
 const forEach = (arr, callback) => {
   for (let i = 0; i < arr.length; i++) {
     callback(arr[i]);
   }
 };
 
+// Create a map() function that takes an array of
+// items and a function that returns an array with
+// each item manipulated by that function.
 const map = (arr, mapped) => {
   const newMap = [];
   for (let i = 0; i < arr.length; i++) {
@@ -18,13 +24,31 @@ const map = (arr, mapped) => {
   }
   return newMap;
 };
+// const map = arr.map(x => x * x);
+// console.log(map);
 
+// Create a filter() function that takes an array of
+// items and a function that returns an array with only
+// the items that return true in the function.
 const filter = (arr, callback) => {
   const newFilter = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      newFilter.push(arr[i]);
+    }
+  }
+  return newFilter;
 };
+// const filter = arr.filter(num => num % 2 === 0);
+// console.log(filter);
 
 function some(arr, callback) {
-  // Your code here
+  for (let i = 0; i < arr.length; i++) {
+    if (callback(arr[i])) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function every(arr, callback) {
