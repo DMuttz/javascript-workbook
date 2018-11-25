@@ -1,18 +1,27 @@
 "use strict";
 
+const arr = [1, 2, 3];
+
 const assert = require("assert");
 
-function forEach(arr, callback) {
-  // Your code here
-}
+const forEach = (arr, callback) => {
+  for (let i = 0; i < arr.length; i++) {
+    callback(arr[i]);
+  }
+};
 
-function map(arr, callback) {
-  // Your code here
-}
+const map = (arr, mapped) => {
+  const newMap = [];
+  for (let i = 0; i < arr.length; i++) {
+    const num = mapped(arr[i]);
+    newMap.push(num);
+  }
+  return newMap;
+};
 
-function filter(arr, callback) {
-  // Your code here
-}
+const filter = (arr, callback) => {
+  const newFilter = [];
+};
 
 function some(arr, callback) {
   // Your code here
