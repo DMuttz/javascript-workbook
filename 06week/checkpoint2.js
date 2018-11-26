@@ -1002,16 +1002,22 @@ const strNums = [
 ];
 
 // Given 1000 digits of PI as strings, return an array of the digits as numbers
-const nums = arr => {
-  const toNumbers = arr.map(str => Number(str));
-  return toNumbers;
-};
-console.log(nums(strNums));
+// const nums = arr => {
+//   const toNumbers = arr.map(str => Number(str));
+//   return toNumbers;
+// };
+// console.log(nums(strNums));
 
 // // Find the sum of the even values
-// const sumEvens;
+const sumEvens = () => {
+  for (i = 0; i < arr.length; i++) {
+    if (i % 2 == 0) {
+      even += arr[i];
+    }
+  }
+};
 
-// console.log(sumEvens);
+console.log(sumEvens);
 
 // // Find the index of the first "Austin" value (the value plus its index equals 512)
 // const atxIdx;
