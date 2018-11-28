@@ -1009,8 +1009,10 @@ const nums = arr => {
 console.log(nums(strNums));
 
 // // Find the sum of the even values
-const sumEvens = () => {
-  let 
+const sumEvens = (accumulator, currentValue) => {
+  if (currentValue % 2 === 0) {
+    return accumulator + currentValue;
+  }
 };
 console.log(sumEvens);
 
