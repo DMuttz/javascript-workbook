@@ -1091,3 +1091,13 @@ const weather = [
     return value + index === 512;
   });
 console.log(`index: ${atxIdx}, value: ${nums[atxIdx]}`);
+
+// using a higher order function, create an array of the unique 'weather_state_name' values of the weather array. Your function should return the following array ['Light Cloud', 'Heavy Cloud', 'Showers']
+const weatherStates = weather.map(
+  weatherName => weatherName.weather_state_name
+);
+console.log(weatherStates);
+
+// find the id of the object in weather that has a min_temp of 15.915
+const idealTemp = weather.find(perfectTemp => perfectTemp.min_temp === 15.915);
+console.log(idealTemp.id);
