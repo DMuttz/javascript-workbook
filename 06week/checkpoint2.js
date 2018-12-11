@@ -1001,8 +1001,17 @@ const strNums = [
   "9"
 ];
 
-// // Given 1000 digits of PI as strings, return an array of the digits as numbers
+// Given 1000 digits of PI as strings, return an array of the digits as numbers
 const nums = strNums.map(strToNum => {
   return Number(strToNum);
 });
 console.log(nums);
+
+// Find the sum of the even values
+const sumEvens = nums.reduce((sum, numeral) => {
+  if (numeral % 2 == 0) {
+    sum = sum + numeral;
+  }
+  return sum;
+}, 0);
+console.log(sumEvens);
